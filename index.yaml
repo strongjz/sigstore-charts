@@ -1,0 +1,20 @@
+apiVersion: v1
+entries:
+  rekor:
+  - apiVersion: v2
+    created: "2021-07-22T06:04:42.295191078Z"
+    description: A Helm chart for Kubernetes
+    digest: 198957973a524acad1162f75f337404b479997997f9828b438fcef4817cd6077
+    home: https://sigstore.dev/
+    keywords:
+    - security
+    maintainers:
+    - name: The Sigstore Authors
+    name: rekor
+    sources:
+    - https://github.com/sigstore/rekor
+    type: application
+    urls:
+    - https://github.com/sabre1041/sigstore-charts/releases/download/rekor-0.1.2/rekor-0.1.2.tgz
+    version: 0.1.2
+generated: "2021-07-22T06:04:42.295196878Z"
