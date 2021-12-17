@@ -24,6 +24,10 @@ jobs:
         with:
           version: v3.7.1
 
+      - name: Install sigstore Helm plugin
+        run: |
+          helm plugin install https://github.com/sigstore/helm-sigstore
+
       - name: Install GPG Keys
         run: |
           cat <(echo -e "${{ secrets.GPG_PRIVATE_KEY }}") | gpg --batch --import
