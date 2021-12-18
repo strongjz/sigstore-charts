@@ -31,6 +31,8 @@ jobs:
       - name: Install GPG Keys
         run: |
           cat <(echo -e "${{ secrets.GPG_PRIVATE_KEY }}") | gpg --import --batch
+          gpg --export > /home/runner/.gnupg/pubring.gpg
+
           gpg --export-secret-keys > /home/runner/.gnupg/secring.gpg
 
       - name: Run chart-releaser
