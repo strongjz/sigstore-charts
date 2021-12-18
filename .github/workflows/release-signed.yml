@@ -32,7 +32,6 @@ jobs:
         run: |
           cat <(echo -e "${{ secrets.GPG_PRIVATE_KEY }}") | gpg --import --batch
           gpg --export > /home/runner/.gnupg/pubring.gpg
-
           gpg --export-secret-keys > /home/runner/.gnupg/secring.gpg
 
       - name: Run chart-releaser
@@ -42,3 +41,9 @@ jobs:
           CR_SIGN: "true"
           CR_KEY: "${{ secrets.GPG_KEY_NAME }}"
           CR_KEYRING: "/home/runner/.gnupg/secring.gpg"
+
+      - name: Upload Helm Charts to Rekor
+        run: |
+          for chart in `find .cr-release-packages -name '*.tgz' -print`; do
+            helm sigstore upload --keyring=/home/runner/.gnupg/secring.gpg ${chart}
+          done
