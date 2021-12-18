@@ -31,7 +31,7 @@ jobs:
       - name: Install GPG Keys
         run: |
           cat <(echo -e "${{ secrets.GPG_PRIVATE_KEY }}") | gpg --import --batch
-          gpg --export-secret-keys >~/.gnupg/secring.gpg
+          gpg --export-secret-keys > /home/runner/.gnupg/secring.gpg
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@c25b74a986eb925b398320414b576227f375f946 # pin@v1.2.1
@@ -39,4 +39,4 @@ jobs:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_SIGN: "true"
           CR_KEY: "${{ secrets.GPG_KEY_NAME }}"
-          CR_KEYRING: "~/.gnupg/secring.gpg"
+          CR_KEYRING: "/home/runner/.gnupg/secring.gpg"
