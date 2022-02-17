@@ -41,11 +41,11 @@ createcerts:
   name: createcerts
   image:
     registry: ghcr.io
-    #repository: vaikas/createcerts
+    # repository: vaikas/createcerts
     repository: sabre1041/createcerts
     pullPolicy: IfNotPresent
     # TODO
-    #version: "sha256:c8ea6165cd73c51adbf2b2b70897318ef934ca18554be2bc66b16cde01a6a0a6"
+    # version: "sha256:c8ea6165cd73c51adbf2b2b70897318ef934ca18554be2bc66b16cde01a6a0a6"
     version: "sha256:c615be8fe0d26309f32a1b728460b13eaf97bfc5e3c4c6c8eca03aa8ff57e497"
   serviceAccount:
     create: true
